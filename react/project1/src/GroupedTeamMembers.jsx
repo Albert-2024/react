@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
+import DataContext from "./DataContext";
 
-const GroupedTeamMembers = ({employees, selectedTeam, setTeam}) => {
+const GroupedTeamMembers = () => {
 
-    const [groupedEmployees , setGroupedData] = useState(groupTeamMembers());
+    const {employees, selectedTeam, setTeam} = useContext(DataContext);
+    const [groupedEmployees, setGroupedData] = useState(groupTeamMembers());
 
     function groupTeamMembers(){
         var teams = [];
@@ -27,11 +29,11 @@ const GroupedTeamMembers = ({employees, selectedTeam, setTeam}) => {
     }
 
     function handleTeamClick(event){
-        var transformedGroupData = groupedEmployees.map((groupedData) => groupedData.team === event.currentTarget.id 
+        var newGroupData = groupedEmployees.map((groupedData) => groupedData.team === event.currentTarget.id 
                                                                 ?{...groupedData,collapsed:!groupedData.collapsed}
                                                                 :groupedData);
 
-        setGroupedData(transformedGroupData);
+        setGroupedData(newGroupData);
         setTeam(event.currentTarget.id);
 
     }
@@ -49,19 +51,21 @@ const GroupedTeamMembers = ({employees, selectedTeam, setTeam}) => {
                                 className={item.collapsed === true?"collapse":""}>
                                     <hr />
                                     {
-                                        item.members.map(member =>{
+                                        item.members.map((member) =>{
                                             return(
-                                                <div className="mt-2">
+                                                <div key={member.id} className="mt-2">
                                                     <h5 className="card-title mt-2">
                                                         <span className="text-dark">Full Name: {member.fullName}</span>
-
                                                     </h5>
-                                                    <p>Designation: {member.designation}</p>
+                                                    <p>
+                                                    <b>Designation: {member.designation}</b>
+                                                    </p>
                                                 </div>
-                                            )
+                                            );
                                         })
                                     }
                             </div>
+                            <hr />
                         </div>
                     )
                 })
