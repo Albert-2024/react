@@ -1,0 +1,16 @@
+const NotFound = () =>{
+
+return(
+    <header className="container">
+        <div className="row jusitfy-content-center mt-3 mb-4" >
+            <div className="col-12">
+                <h1 className="text-danger">404-page not found</h1>
+            </div>
+        </div>
+    </header>
+)
+}
+
+
+
+export default NotFound;
