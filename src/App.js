@@ -1,4 +1,5 @@
 // import State from './useStateMan/State';
+import LayoutTut from './layoutMan/LayoutTut';
 import './App.css';
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         {/* <State /> */}
+        <LayoutTut />
       </header>
     </div>
   );
