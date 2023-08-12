@@ -3,9 +3,11 @@ import './App.css';
 import React, {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
-import Product from './pages/Product';
 import Error from './pages/Error';
 import SharedLayout from './pages/SharedLayout';
+import SinglePrdt from './pages/SinglePrdt';
+import Products from './pages/Products';
+import products from './data';
 
 
 function App() {
@@ -15,7 +17,8 @@ function App() {
       <Route path='/' element={<SharedLayout/>}>&nbsp;
         <Route index element={<Home />} />
         <Route path ='/about' element={<About />} />
-        <Route path ='/product' element={<Product />} />
+        <Route path='/products' element={<Products />} />
+        <Route path='/Product/:productID' element={<SinglePrdt />} />
         <Route path ='*' element={<Error />} />
       </Route>
       </Routes>
