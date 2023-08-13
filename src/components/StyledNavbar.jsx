@@ -19,12 +19,22 @@ const StyledNavbar = () => {
                     color: isActive ? 'red' : 'blue'
                 }
             }}> About</NavLink>
-        <NavLink to='/product'
+
+        <NavLink to='/products'
             style={({isActive})=> {
                 return {
                     color: isActive ? 'red' : 'blue'
                 }
-            }}></NavLink>
+            }}>products
+        </NavLink>
+
+        <NavLink to='login'
+            style={({isActive})=> {
+                return {
+                    color: isActive ? 'red' : 'blue'
+                }
+              }}>Login
+        </NavLink>
 
     </nav>
     

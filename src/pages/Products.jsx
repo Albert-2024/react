@@ -4,13 +4,12 @@ import products from '../data'
 const Products = () => {
   return (
     <section className='section'>
-      <h2>this is a Products page</h2>
       <div className="products">
       {products.map((product) => {
           return (
             <article key={product.id}>
               <h5>{product.name}</h5>
-              <Link to={`/Product/${product.id}`}>more info</Link>
+              <Link to={`/Products/${product.id}`}>more info</Link>
             </article>
           )
         })}
